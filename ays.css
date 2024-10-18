@@ -1,0 +1,26 @@
+.arrastrable {
+  position: absolute;
+  padding: 0px;
+  width: 60px;
+  height: 15px;
+  border: 2px solid #444;
+  border-radius: 5px;
+  background-color: #eee;
+  cursor: all-scroll;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+.soltable {
+  margin: 10px;
+  width: 65px;
+  height: 20px;
+  border: 1px solid #111;
+  border-radius: 5px;
+  background-color: #bbb;
+  cursor: all-scroll;
+  z-index: 90;
+}
