@@ -5,9 +5,12 @@ AYS = {
 };
 
 AYS.empezarArrastre = function(div, e) {
+  e.preventDefault();
   let rect = div.getBoundingClientRect();
+  let x = e.clientX || e.targetTouches[0].pageX;
+  let y = e.clientY || e.targetTouches[0].pageY;
   AYS.arrastreActivo = {
-    que:div, desde:{left:rect.left, top:rect.top, x:e.x, y:e.y},
+    que:div, desde:{left:rect.left, top:rect.top, x, y},
     tamanio: {w:rect.width, h:rect.height}
   };
   div.style.left = `${rect.left}px`;
@@ -20,6 +23,7 @@ AYS.empezarArrastre = function(div, e) {
 };
 
 AYS.arrastrar = function(e) {
+  e.preventDefault();
   let x = e.clientX || e.targetTouches[0].pageX;
   let y = e.clientY || e.targetTouches[0].pageY;
   let que = AYS.arrastreActivo.que;
@@ -36,7 +40,8 @@ AYS.arrastrar = function(e) {
   que.style.top = `${nuevaPosicion.y}px`;
 };
 
-AYS.terminarArrastre = function() {
+AYS.terminarArrastre = function(e) {
+  e.preventDefault();
   let que = AYS.arrastreActivo.que;
   que.style.zIndex = 100;
   if ('objetivo' in AYS.arrastreActivo) {
@@ -67,7 +72,9 @@ AYS.terminarArrastre = function() {
   }
   delete AYS.arrastreActivo;
   window.removeEventListener('mouseup', AYS.terminarArrastre);
+  window.removeEventListener('touchend', AYS.terminarArrastre);
   window.removeEventListener('mousemove', AYS.arrastrar);
+  window.removeEventListener('touchmove', AYS.arrastrar);
 };
 
 AYS.soltableCercano = function(posicion, tamanio) {
