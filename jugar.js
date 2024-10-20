@@ -7,5 +7,6 @@ window.addEventListener('load', function(e) {
     arrastrable.style.zIndex = 100;
     AYS.posicionesOriginales[arrastrable.id] = {x:40, y};
     arrastrable.addEventListener('mousedown', function(e) { AYS.empezarArrastre(arrastrable, e); });
+    arrastrable.addEventListener('touchstart', function(e) { AYS.empezarArrastre(arrastrable, e); });
   }
 });

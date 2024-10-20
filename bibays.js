@@ -14,13 +14,17 @@ AYS.empezarArrastre = function(div, e) {
   div.style.top = `${rect.top}px`;
   div.style.zIndex = 101;
   window.addEventListener('mousemove', AYS.arrastrar);
+  window.addEventListener('touchmove', AYS.arrastrar);
   window.addEventListener('mouseup', AYS.terminarArrastre);
+  window.addEventListener('touchend', AYS.terminarArrastre);
 };
 
 AYS.arrastrar = function(e) {
+  let x = e.clientX || e.targetTouches[0].pageX;
+  let y = e.clientY || e.targetTouches[0].pageY;
   let que = AYS.arrastreActivo.que;
   let desde = AYS.arrastreActivo.desde;
-  let nuevaPosicion = {x: desde.left + e.x - desde.x, y:desde.top + e.y - desde.y};
+  let nuevaPosicion = {x: desde.left + x - desde.x, y:desde.top + y - desde.y};
   let soltableCercano = AYS.soltableCercano(nuevaPosicion, AYS.arrastreActivo.tamanio);
   if (esNull(soltableCercano)) {
     delete AYS.arrastreActivo.objetivo;
