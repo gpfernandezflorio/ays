@@ -1,0 +1,44 @@
+.arrastrable {
+  position: absolute;
+  padding: 0px;
+  width: 90px;
+  height: 112px;
+  border-radius: 5px;
+  text-align: center;
+  align-content: center;
+  cursor: all-scroll;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+img {
+  cursor: all-scroll;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+.soltable {
+  position: absolute;
+  padding: 0px;
+  width: 90px;
+  height: 112px;
+  border: 1px solid #111;
+  border-radius: 10px;
+  background-color: #bbb;
+  cursor: all-scroll;
+  z-index: 90;
+}
+
+.movimiento {
+  animation-name: movimiento;
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
